@@ -1,1 +1,1 @@
-web: gunicorn python-docker:app
+web: gunicorn app:app
