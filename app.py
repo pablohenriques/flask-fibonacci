@@ -3,7 +3,6 @@ import redis
 
 from flask import Flask, make_response, jsonify
 
-
 app = Flask(__name__)
 
 #cache = redis.Redis(host="localhost", port=6379, password="")
@@ -21,7 +20,6 @@ def calculo(numero):
 
     if cache.exists(f'{numero}'):
         resultado = int(cache.get(f'{numero}').decode('utf-8'))
-        print(f'Resultado: {resultado}')
     else:
         resultado = fibonacci(numero)            
         cache.mset({numero:resultado})
